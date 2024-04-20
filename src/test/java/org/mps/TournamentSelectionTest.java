@@ -46,10 +46,21 @@ public class TournamentSelectionTest {
     @Test
     @DisplayName("Test que prueba que no entra en el ultimo if de select")
     public void select_PopulationEsValido_ReturnException() throws EvolutionaryAlgorithmException {
-        SelectionOperator tournamentSelection = new TournamentSelection(3);
+        SelectionOperator tournamentSelection = new TournamentSelection(5);
         int[] population = {1, 2, 3, 4, 5};
 
         assertDoesNotThrow(() -> {
+            tournamentSelection.select(population);
+        });
+    }
+
+    @Test
+    @DisplayName("Test que lanza error cuando tournamentSize es mayor que population")
+    public void select_TournamentSizeEsMayorQuePopulation_ReturnException() throws EvolutionaryAlgorithmException {
+        SelectionOperator tournamentSelection = new TournamentSelection(6);
+        int[] population = {1, 2, 3, 4, 5};
+
+        assertThrows(EvolutionaryAlgorithmException.class, () -> {
             tournamentSelection.select(population);
         });
     }
