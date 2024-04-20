@@ -204,23 +204,6 @@ public class EvolutionaryAlgorithmTest {
                 ev.optimize(population);
             });
         }
-
-        /*@Test
-        @DisplayName("Test que prueba que entra en el if de better")
-        public void optimize_BetterEsTrue() throws EvolutionaryAlgorithmException {
-            TournamentSelection selectionOperator = new TournamentSelection(2);
-            SwapMutation mutationOperator = new SwapMutation();
-            OnePointCrossover crossoverOperator = new OnePointCrossover();
-            EvolutionaryAlgorithm ev = new EvolutionaryAlgorithm(selectionOperator, mutationOperator, crossoverOperator);
-
-            int[][] population = new int[2][2];
-            population[0] = new int[]{1, 2};
-            population[1] = new int[]{3, 4};
-            
-            assertDoesNotThrow(() -> {
-                ev.optimize(population);
-            });
-        }*/
     }
     
 }
