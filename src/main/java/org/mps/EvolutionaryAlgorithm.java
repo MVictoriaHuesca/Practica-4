@@ -53,8 +53,18 @@ public class EvolutionaryAlgorithm {
     }
 
     public int[][] optimize(int[][] population) throws EvolutionaryAlgorithmException {
+        
+        
 
         if (population != null && population.length > 0 && population[0]!=null && population[0].length>0) {
+
+            // Error corregido, el numero de filas de popilation debe ser par, 
+            // si no lo es se lanza una excepcion
+            if(population.length % 2 == 1){
+                throw new EvolutionaryAlgorithmException("La poblacion debe ser par");
+            }
+
+
             // Creamos una nueva población para los descendientes
             int[][] offspringPopulation = new int[population.length][population.length];
 
