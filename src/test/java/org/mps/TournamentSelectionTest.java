@@ -44,8 +44,8 @@ public class TournamentSelectionTest {
     }
 
     @Test
-    @DisplayName("Test que prueba que no entra en el ultimo if de select")
-    public void select_PopulationEsValido_ReturnException() throws EvolutionaryAlgorithmException {
+    @DisplayName("Test que prueba que no lanza excepcion cuando todo esta correcto")
+    public void select_TodoEsCorrecto() throws EvolutionaryAlgorithmException {
         SelectionOperator tournamentSelection = new TournamentSelection(5);
         int[] population = {1, 2, 3, 4, 5};
 
