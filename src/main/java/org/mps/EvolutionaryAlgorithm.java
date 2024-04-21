@@ -28,6 +28,7 @@ import org.mps.selection.SelectionOperator;
  * proceso de optimización, permitiendo la personalización mediante el uso de
  * diferentes operadores de selección, cruce y mutación.
  */
+
 public class EvolutionaryAlgorithm {
     private SelectionOperator selectionOperator;
     private MutationOperator mutationOperator;
@@ -54,12 +55,12 @@ public class EvolutionaryAlgorithm {
 
     public int[][] optimize(int[][] population) throws EvolutionaryAlgorithmException {
 
-        if (population != null && population.length > 0 && population[0]!=null && population[0].length>0) {
+        if (population != null && population.length > 0 && population[0]!=null && population[0].length>0 && population.length%2==0) {  //ERROR: Se añade la condición de que la longitud de la población sea par
             // Creamos una nueva población para los descendientes
             int[][] offspringPopulation = new int[population.length][population.length];
 
             // Aplicamos operadores de selección y cruce para generar descendientes
-            for (int i = 0; i < population.length; i += 2) {
+            for (int i = 0; i < population.length; i += 2) { 
                 // Seleccionamos dos individuos de la población actual
                 int[] parent1 = selectionOperator.select(population[i]);
                 int[] parent2 = selectionOperator.select(population[i + 1]);
