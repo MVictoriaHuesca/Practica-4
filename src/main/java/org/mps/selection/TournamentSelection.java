@@ -41,7 +41,10 @@ public class TournamentSelection implements SelectionOperator {
     @Override
     public int[] select(int[] population) throws EvolutionaryAlgorithmException {
         int[] selected;
-        if (population != null && population.length > 0) {  
+        if (population != null && population.length > 0)  {  
+            if(tournamentSize != population.length) { //ERROR: Se ha añadido la condicion de qeu tournamentSize == population.length
+                throw new EvolutionaryAlgorithmException("El tamaño del torneo debe ser igual al tamaño de la población");
+            }
             selected = new int[population.length];
             for (int i = 0; i < population.length; i++) {
                 int best = -1;

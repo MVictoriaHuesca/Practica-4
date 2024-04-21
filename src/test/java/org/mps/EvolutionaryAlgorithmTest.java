@@ -135,6 +135,22 @@ public class EvolutionaryAlgorithmTest {
                     evAl.optimize(population);
                 });
             }
+
+            @Test
+            @DisplayName("Test optimize con población vacía y genes vacíos lanza excepción")
+            public void optimize_PoblacionVaciaGenesVacios_LanzaExcepcion() throws EvolutionaryAlgorithmException {
+                int[][] population = new int[0][0];
+    
+                SelectionOperator selOp = new TournamentSelection(3);
+                MutationOperator mutOp = new SwapMutation();
+                CrossoverOperator crossOp = new OnePointCrossover();
+                
+                EvolutionaryAlgorithm evAl = new EvolutionaryAlgorithm(selOp, mutOp, crossOp);
+    
+                assertThrows(EvolutionaryAlgorithmException.class,()-> {
+                    evAl.optimize(population);
+                });
+            }
     
             @Test
             @DisplayName("Test optimize con población no vacía y genes nulos lanza excepción")
@@ -176,6 +192,8 @@ public class EvolutionaryAlgorithmTest {
             @DisplayName("Test optimize con individuos pares no lanza excepción")
             public void optimize_PolacionPar_NoLanzaExcepcion() throws EvolutionaryAlgorithmException {
                 int[][] population = new int[2][3];
+                population[0] = new int[]{1, 2, 3};
+                population[1] = new int[]{4, 5, 6};
     
                 SelectionOperator selOp = new TournamentSelection(3);
                 MutationOperator mutOp = new SwapMutation();

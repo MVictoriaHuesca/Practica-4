@@ -55,7 +55,10 @@ public class EvolutionaryAlgorithm {
 
     public int[][] optimize(int[][] population) throws EvolutionaryAlgorithmException {
 
-        if (population != null && population.length > 0 && population[0]!=null && population[0].length>0 && population.length%2==0) {  //ERROR: Se añade la condición de que la longitud de la población sea par
+        if (population != null && population.length > 0 && population[0]!=null && population[0].length>0) {  
+            if(population.length%2!=0){ //ERROR: Se añade la condición de que la longitud de la población sea par
+                throw new EvolutionaryAlgorithmException("La longitud de la población debe ser par");
+            }
             // Creamos una nueva población para los descendientes
             int[][] offspringPopulation = new int[population.length][population.length];
 
