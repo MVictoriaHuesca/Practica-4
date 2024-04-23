@@ -1,3 +1,9 @@
+/*
+ * AUTORES:
+ * - Eduardo Garcí­a Rivas
+ * - Marí­a Victoria Huesca Peláez
+ */
+
 package org.mps;
 
 import org.mps.crossover.OnePointCrossover;
